@@ -11,7 +11,7 @@ const Header = ({ title}) => {
     <header className="header">
         {/* the title is called in the app.js title ='hello' */}
         <h1>{title}</h1>
-       <Button color ='blue' text = 'Add Task' onclick={onClick} />
+       <Button color ='blue' text = 'Add Action' onclick={onClick} />
     </header>
   )
 }
