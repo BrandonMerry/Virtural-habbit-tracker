@@ -10,28 +10,38 @@ function App() {
     {
       id: 1,
       text: 'Drs',
-      day: 'Today',
+      day: 'yesterday',
       reminder: true,
     },
     {
-      id: 1,
+      id: 2,
       text: 'Drs',
       day: 'Today',
       reminder: true,
     },
     {
-      id: 1,
+      id: 3,
       text: 'Drs',
-      day: 'Today',
+      day: 'tomorrow',
       reminder: true,
     }
   ])
  
+  // function to Delete an action
+  const deleteAction = (id) => {
+    setActions(actions.filter((action) => action.id !== id))
+  }
+
+  // toggle remider - something that happened multiple times 
+  const toggleReminder  = (id) => {
+    setActions(actions.map((action) => action.id === id ? {...action, reminder: !action.reminder} : action))
+  }
 
   return (
     <div className="container">
       <Header />
-      <Actions actions={actions} />
+      { actions.length > 0 ? ( 
+      <Actions actions={actions} onDelete={deleteAction} onToggle={toggleReminder} /> ) : ('No Actions')  }
     </div>
   );
 }

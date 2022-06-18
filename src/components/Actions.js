@@ -1,10 +1,12 @@
-// this is set up so actions is used as a destructured and stat in the app form
+// import component form Action
+import Action from "./Action"
 
-const Actions = ({actions}) => {
+// this is set up so actions is used as a destructured and stat in the app form
+const Actions = ({actions, onDelete, onToggle}) => {
   return (
     <>
-    {actions.map ((actions) => (
-      <h3 key ='actions'>{actions.text}</h3>
+    {actions.map ((action) => (
+      <Action  key ='action.id' action = {action} onDelete={onDelete} onToggle={onToggle}></Action>
     ))}
     </>
   )
